@@ -5,6 +5,7 @@ from tkinter import messagebox
 
 # Reset the Game
 def reset():
+    """When initializing this will make all of the variables reset"""
     global colors, turn, score, button_list, last_index_clicked, score_label, root
 
     # Create our matches
@@ -37,7 +38,7 @@ def reset():
 
 
 def button_click(index):
-    print(index)
+    """Every time a button is clicked it will pass it's index in the list for access and we can continue with a message"""
     global score, last_index_clicked
 
     button_list[index].configure(bg=colors[index])
@@ -46,7 +47,7 @@ def button_click(index):
     if last_index_clicked != None:
 
         if score <= 1:
-            messagebox.showinfo("You lost", "Congrats!")
+            messagebox.showinfo("You lost", ":( no more turns")
             reset()
 
         if colors[index] == colors[last_index_clicked]:
@@ -67,6 +68,7 @@ def button_click(index):
         last_index_clicked = index
 
 if __name__ == "__main__":
+    # initilizes and starts program
     root = Tk()
     reset()
     root.mainloop()
